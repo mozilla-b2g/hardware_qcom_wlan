@@ -19,5 +19,9 @@ LOCAL_SHARED_LIBRARIES += libqmiservices libqmi libqcci_legacy libqmi_client_qmu
 endif #TARGET_USES_QCOM_WCNSS_QMI
 LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS += -Wall
+ifeq ($(PROPRIETARY_BLOBS_EXIST),true)
+#include $(BUILD_EXECUTABLE)
+else
 include $(BUILD_EXECUTABLE)
+endif
 endif
